@@ -12,6 +12,13 @@ public class WorkSession {
         this.totalSession = 0;
     }
 
+    public WorkSession(LocalDateTime start, LocalDateTime end, int duration) {
+        this.startTime = start;
+        this.endTime = end;
+        this.totalSession = duration;
+
+    }
+
     /*public WorkSession(int manualDuration) {
         this.manualDuration = manualDuration;
         this.startTime = null;
@@ -44,6 +51,7 @@ public class WorkSession {
         this.endTime = endTime;
         this.totalSession =(int) java.time.Duration.between(startTime, endTime).toMinutes();
     }
+
     /*public int getManualDuration() {
         return manualDuration;
     }
