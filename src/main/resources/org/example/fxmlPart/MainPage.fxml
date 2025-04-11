@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo2.MainPageController">
+   <children>
+      <ButtonBar buttonMinWidth="120.0" buttonOrder="U" prefHeight="60.0" prefWidth="1280.0">
+        <buttons>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchToStopwatch" prefHeight="35.0" style="-fx-background-color: #1E1E1E;" text="Stopwatch" textAlignment="CENTER" textFill="#e0e0e0" textOverrun="CLIP">
+               <font>
+                  <Font name="Tahoma" size="20.0" />
+               </font>
+            </Button>
+          <Button mnemonicParsing="false" onAction="#switchToMainPage" prefHeight="35.0" style="-fx-background-color: #1E1E1E;" text="Main" textAlignment="CENTER" textFill="#e0e0e0" textOverrun="CLIP">
+               <font>
+                  <Font name="Tahoma" size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#switchToResults" prefHeight="35.0" style="-fx-background-color: #1E1E1E;" text="History" textAlignment="CENTER" textFill="#e0e0e0" textOverrun="CLIP">
+               <font>
+                  <Font name="Tahoma" size="20.0" />
+               </font>
+            </Button>
+        </buttons>
+      </ButtonBar>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="362.0" layoutY="100.0" prefHeight="90.0" prefWidth="550.0" text="It's good to see you again" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="42.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" cycleMethod="REFLECT" radius="0.5275229532784278">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4399999976158142" green="0.24633298814296722" blue="0.03519999980926514" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="dateOnMainScreen" alignment="CENTER" contentDisplay="CENTER" layoutX="367.0" layoutY="205.0" prefHeight="90.0" prefWidth="550.0" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="42.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.599431818181818" endY="0.8560605988358007">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4399999976158142" green="0.24633298814296722" blue="0.03519999980926514" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <ProgressBar layoutX="349.0" layoutY="435.0" prefHeight="29.0" prefWidth="309.0" progress="0.0" rotate="90.0" />
+      <ProgressBar layoutX="483.0" layoutY="435.0" prefHeight="29.0" prefWidth="309.0" progress="0.0" rotate="90.0" />
+      <ProgressBar layoutX="611.0" layoutY="435.0" prefHeight="29.0" prefWidth="309.0" progress="0.0" rotate="90.0" />
+      <Label text="Label" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="687.0" layoutY="605.0" prefHeight="98.0" prefWidth="166.0" text="Hours in this Month" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" cycleMethod="REFLECT" radius="0.5275229532784278">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4399999976158142" green="0.24633298814296722" blue="0.03519999980926514" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="580.0" layoutY="605.0" prefHeight="98.0" prefWidth="113.0" text="Current Streak" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" cycleMethod="REFLECT" radius="0.5275229532784278">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4399999976158142" green="0.24633298814296722" blue="0.03519999980926514" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="435.0" layoutY="605.0" prefHeight="98.0" prefWidth="135.0" text="Current Progress until next Month" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" cycleMethod="REFLECT" radius="0.5275229532784278">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4399999976158142" green="0.24633298814296722" blue="0.03519999980926514" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+   </children>
+</AnchorPane>
