@@ -1,47 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Stopwatch">
+<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.Stopwatch"
+            prefWidth="1280.0" prefHeight="720.0"
+            style="-fx-background-color: #1E1E1E;">
    <children>
-      <ButtonBar buttonMinWidth="120.0" buttonOrder="U" prefHeight="60.0" prefWidth="1280.0">
+      <ButtonBar buttonMinWidth="120.0" prefHeight="60.0" prefWidth="1280.0">
          <buttons>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchToStopwatch" prefHeight="35.0" style="-fx-background-color: #1E1E1E;" text="Stopwatch" textAlignment="CENTER" textFill="#e0e0e0" textOverrun="CLIP">
-               <font>
-                  <Font name="Tahoma" size="20.0" />
-               </font>
+            <Button text="Stopwatch" onAction="#switchToStopwatch" style="-fx-background-color: #1E1E1E;" textFill="#e0e0e0">
+               <font><Font name="Tahoma" size="20.0"/></font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#switchToMainPage" prefHeight="35.0" style="-fx-background-color: #1E1E1E;" text="Main" textAlignment="CENTER" textFill="#e0e0e0" textOverrun="CLIP">
-               <font>
-                  <Font name="Tahoma" size="20.0" />
-               </font>
+            <Button text="Main" onAction="#switchToMainPage" style="-fx-background-color: #1E1E1E;" textFill="#e0e0e0">
+               <font><Font name="Tahoma" size="20.0"/></font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#switchToResults" prefHeight="35.0" style="-fx-background-color: #1E1E1E;" text="History" textAlignment="CENTER" textFill="#e0e0e0" textOverrun="CLIP">
-               <font>
-                  <Font name="Tahoma" size="20.0" />
-               </font>
+            <Button text="History" onAction="#switchToResults" style="-fx-background-color: #1E1E1E;" textFill="#e0e0e0">
+               <font><Font name="Tahoma" size="20.0"/></font>
             </Button>
          </buttons>
       </ButtonBar>
-      <Label fx:id="timerLabel" layoutX="417.0" layoutY="117.0" prefHeight="160.0" prefWidth="390.0" text="1" textFill="WHITE">
-         <font>
-            <Font size="48.0" />
-         </font>
+
+      <Label fx:id="timerLabel" layoutX="417.0" layoutY="117.0" prefWidth="390.0" prefHeight="160.0"
+             text="00:00:00" textFill="WHITE">
+         <font><Font size="48.0"/></font>
       </Label>
-      <Button fx:id="startButton" layoutX="490.0" layoutY="322.0" mnemonicParsing="false" onAction="#startSession" prefHeight="35.0" style="-fx-background-color: #1E1E1E;" text="Start the Session" textAlignment="CENTER" textFill="#e0e0e0" textOverrun="CLIP">
-         <font>
-            <Font name="Tahoma" size="36.0" />
-         </font>
+
+      <Button fx:id="startButton" layoutX="490.0" layoutY="322.0" onAction="#startSession"
+              text="Start the Session" style="-fx-background-color: #1E1E1E;" textFill="#e0e0e0">
+         <font><Font name="Tahoma" size="36.0"/></font>
       </Button>
-      <Button fx:id="stopButton" layoutX="490.0" layoutY="418.0" mnemonicParsing="false" onAction="#stopSession" prefHeight="35.0" style="-fx-background-color: #1E1E1E;" text="End the Session" textAlignment="CENTER" textFill="#e0e0e0" textOverrun="CLIP">
-         <font>
-            <Font name="Tahoma" size="36.0" />
-         </font>
+
+      <Button fx:id="stopButton" layoutX="490.0" layoutY="418.0" onAction="#stopSession"
+              text="End the Session" style="-fx-background-color: #1E1E1E;" textFill="#e0e0e0" disable="true">
+         <font><Font name="Tahoma" size="36.0"/></font>
       </Button>
-      <Label text="Label" />
    </children>
 </AnchorPane>

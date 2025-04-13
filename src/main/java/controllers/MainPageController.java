@@ -25,7 +25,7 @@ public class MainPageController {
     @FXML
     private Button stopButton;
 
-    public void switchToMainPage (ActionEvent event) throws IOException {
+   /* public void switchToMainPage (ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/fxmlPart/MainPage.fxml"));
         Parent root = loader.load(); // Load edilen Parent'ı al
 
@@ -44,9 +44,27 @@ public class MainPageController {
         stage.show();
 
 
+    }*/
+   public void switchToMainPage() {
+       util.ViewNavigator.switchTo("/org/example/fxmlPart/MainPage.fxml");
+
+       util.ViewNavigator.switchToWithController("/org/example/fxmlPart/MainPage.fxml", (MainPageController controller) -> {
+           LocalDate currentDate = LocalDate.now();
+           DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+           controller.dateOnMainScreen.setText(currentDate.format(formatter));
+       });
+   }
+
+    public void switchToStopwatch() {
+        util.ViewNavigator.switchTo("/org/example/fxmlPart/Stopwatch.fxml");
+        util.ViewNavigator.switchToWithController("/org/example/fxmlPart/Stopwatch.fxml", Stopwatch::makeStopButtonInvisible);
     }
 
-    public void switchToStopwatch (ActionEvent event) throws IOException {
+    public void switchToResults() {
+        util.ViewNavigator.switchTo("/org/example/fxmlPart/Results.fxml");
+    }
+
+    /*public void switchToStopwatch (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/org/example/fxmlPart/Stopwatch.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -61,5 +79,5 @@ public class MainPageController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
+    }*/
 }

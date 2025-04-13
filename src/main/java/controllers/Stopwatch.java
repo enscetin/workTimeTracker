@@ -37,13 +37,13 @@ public class Stopwatch {
     @FXML
     public Button startButton, stopButton;
 
-    public void switchToMainPage (ActionEvent event) throws IOException {
+    /*public void switchToMainPage (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/org/example/fxmlPart/MainPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        /*LocalDate currentDate = LocalDate.now();
+        *//*LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-        dateOnMainScreen.setText(currentDate.format(formatter));*/
+        dateOnMainScreen.setText(currentDate.format(formatter));*//*
         stage.setScene(scene);
         stage.show();
     }
@@ -62,6 +62,24 @@ public class Stopwatch {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }*/
+
+    public void switchToMainPage() {
+        util.ViewNavigator.switchTo("/org/example/fxmlPart/MainPage.fxml");
+
+        util.ViewNavigator.switchToWithController("/org/example/fxmlPart/MainPage.fxml", (MainPageController controller) -> {
+            LocalDate currentDate = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+            controller.dateOnMainScreen.setText(currentDate.format(formatter));
+        });
+    }
+
+    public void switchToStopwatch() {
+        util.ViewNavigator.switchTo("/org/example/fxmlPart/Stopwatch.fxml");
+    }
+
+    public void switchToResults() {
+        util.ViewNavigator.switchTo("/org/example/fxmlPart/Results.fxml");
     }
 
  /*   @FXML

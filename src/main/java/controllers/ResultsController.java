@@ -11,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class ResultsController {
     @FXML
@@ -23,19 +25,19 @@ public class ResultsController {
     @FXML
     private Button startButton;
 
-    public void switchToMainPage (ActionEvent event) throws IOException {
+    /*public void switchToMainPage (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/org/example/fxmlPart/MainPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        /*LocalDate currentDate = LocalDate.now();
+        *//*LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-        dateOnMainScreen.setText(currentDate.format(formatter));*/
+        dateOnMainScreen.setText(currentDate.format(formatter));*//*
         stage.setScene(scene);
         stage.show();
     }
 
     public void switchToStopwatch (ActionEvent event) throws IOException {
-        /*Parent root = FXMLLoader.load(getClass().getResource("/org/example/fxmlPart/Stopwatch.fxml"));*/
+        *//*Parent root = FXMLLoader.load(getClass().getResource("/org/example/fxmlPart/Stopwatch.fxml"));*//*
         // Stopwatch.fxml'i yükleyin
 
         // Yeni bir FXMLLoader oluşturun ve root ile ilişkilendirin
@@ -60,5 +62,24 @@ public class ResultsController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }*/
+
+    public void switchToMainPage() {
+        util.ViewNavigator.switchTo("/org/example/fxmlPart/MainPage.fxml");
+
+        util.ViewNavigator.switchToWithController("/org/example/fxmlPart/MainPage.fxml", (MainPageController controller) -> {
+            LocalDate currentDate = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+            controller.dateOnMainScreen.setText(currentDate.format(formatter));
+        });
+    }
+
+    public void switchToStopwatch() {
+        util.ViewNavigator.switchTo("/org/example/fxmlPart/Stopwatch.fxml");
+        util.ViewNavigator.switchToWithController("/org/example/fxmlPart/Stopwatch.fxml", Stopwatch::makeStopButtonInvisible);
+    }
+
+    public void switchToResults() {
+        util.ViewNavigator.switchTo("/org/example/fxmlPart/Results.fxml");
     }
 }
