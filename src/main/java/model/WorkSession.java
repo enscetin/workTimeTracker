@@ -1,63 +1,50 @@
 package model;
+
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class WorkSession {
-    public LocalDateTime startTime;
-    public LocalDateTime endTime;
-    public int totalSession;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+    private int durationMinutes;
 
-    public WorkSession(int totalSession) {
+    public WorkSession() {
         this.startTime = LocalDateTime.now();
         this.endTime = null;
-        this.totalSession = 0;
+        this.durationMinutes = 0;
     }
 
-    public WorkSession(LocalDateTime start, LocalDateTime end, int duration) {
+    public WorkSession(LocalDateTime start, LocalDateTime end, int durationMinutes) {
         this.startTime = start;
         this.endTime = end;
-        this.totalSession = duration;
-
+        this.durationMinutes = durationMinutes;
     }
 
-    /*public WorkSession(int manualDuration) {
-        this.manualDuration = manualDuration;
-        this.startTime = null;
-        this.endTime = null;
-    }*/
-
-    public int getDuration() {
-        endTime = LocalDateTime.now();
-        if (startTime == null) {
-            throw new IllegalStateException("startTime or endTime is null");
-        }
-        totalSession = (int) java.time.Duration.between(startTime, endTime).toMinutes();
-        return totalSession;
-
-    }
-
-    /*public void setDuration(int duration) {
-        this.manualDuration = duration;
-    }*/
     public LocalDateTime getStartTime() {
         return startTime;
     }
+
     public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
+
     public LocalDateTime getEndTime() {
         return endTime;
     }
+
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
-        this.totalSession =(int) java.time.Duration.between(startTime, endTime).toMinutes();
+        this.durationMinutes = (int) Duration.between(startTime, endTime).toMinutes();
     }
 
-    /*public int getManualDuration() {
-        return manualDuration;
+    public int getDurationMinutes() {
+        if (endTime == null) {
+            return (int) Duration.between(startTime, LocalDateTime.now()).toMinutes();
+        }
+        return durationMinutes;
     }
-    public void setManualDuration(int manualDuration) {
-        this.manualDuration = manualDuration;
-    }*/
 
-    // Getter - Setter'lar
+    public void setDurationMinutes(int minutes) {
+        this.durationMinutes = minutes;
+    }
 }

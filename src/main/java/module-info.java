@@ -6,9 +6,9 @@ module org.example.demo2 {
     requires java.sql;
 
 
-    opens org.example.demo2 to javafx.fxml;
+    opens controllers to javafx.fxml;
     opens model to com.google.gson;
-    exports org.example.demo2;
+    exports controllers;
     exports model to com.google.gson;
 }
 

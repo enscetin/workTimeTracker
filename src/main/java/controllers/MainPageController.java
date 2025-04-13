@@ -1,4 +1,4 @@
-package org.example.demo2;
+package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class ResultsController {
+public class MainPageController {
     @FXML
     Label dateOnMainScreen;
 
@@ -23,35 +23,34 @@ public class ResultsController {
     private Parent root;
 
     @FXML
-    private Button startButton;
+    private Button stopButton;
 
     public void switchToMainPage (ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/org/example/fxmlPart/MainPage.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        /*LocalDate currentDate = LocalDate.now();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/fxmlPart/MainPage.fxml"));
+        Parent root = loader.load(); // Load edilen Parent'ı al
+
+        // Controller'ı al
+        MainPageController controller = loader.getController();
+
+        // Label'ı güncelle
+        LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-        dateOnMainScreen.setText(currentDate.format(formatter));*/
+        controller.dateOnMainScreen.setText(currentDate.format(formatter));
+
+        // Sahneyi değiştir
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+
     }
 
     public void switchToStopwatch (ActionEvent event) throws IOException {
-        /*Parent root = FXMLLoader.load(getClass().getResource("/org/example/fxmlPart/Stopwatch.fxml"));*/
-        // Stopwatch.fxml'i yükleyin
-
-        // Yeni bir FXMLLoader oluşturun ve root ile ilişkilendirin
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/fxmlPart/Stopwatch.fxml"));
-        root = loader.load();
-
-        // StopwatchController'a erişin
-        Stopwatch stopwatchController = loader.getController();
-
-        // stopButton'ı devre dışı bırakın
-        stopwatchController.makeStopButtonInvisible();
-
+        Parent root = FXMLLoader.load(getClass().getResource("/org/example/fxmlPart/Stopwatch.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        stopButton.setDisable(true);
         stage.setScene(scene);
         stage.show();
     }
