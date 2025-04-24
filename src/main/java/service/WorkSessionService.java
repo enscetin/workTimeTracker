@@ -8,7 +8,7 @@ import java.util.List;
 
 public class WorkSessionService {
     private final WorkSessionRepository repository = new WorkSessionRepository();
-    private WorkSession currentSession;
+    private static WorkSession currentSession;
 
     public WorkSessionService() {
         repository.createTableIfNotExists();
@@ -26,7 +26,7 @@ public class WorkSessionService {
         }
     }
 
-    public WorkSession getCurrentSession() {
+    public static WorkSession getCurrentSession() {
         return currentSession;
     }
 

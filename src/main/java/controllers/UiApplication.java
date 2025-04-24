@@ -44,7 +44,7 @@ public class UiApplication extends Application {
             controller.dateOnMainScreen.setText(currentDate.format(formatter));
         });
 
-        util.ViewNavigator.switchToWithController("/org/example/fxmlPart/Stopwatch.fxml", Stopwatch::makeStopButtonInvisible);
+ /*       util.ViewNavigator.switchToWithController("/org/example/fxmlPart/Stopwatch.fxml", Stopwatch::makeStopButtonInvisible);*/
     }
 
     public static void main(String[] args) {
